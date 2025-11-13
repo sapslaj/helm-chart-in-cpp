@@ -1,0 +1,8 @@
+apiVersion: v1
+name: cpp-renderer
+version: 0.1.0
+type: postrenderer/v1
+sourceURL: https://github.com/sapslaj/helm-chart-in-cpp
+description: A Helm 4 "chart" implemented as a postrender WASM plugin
+runtime: extism/v1
+config: {}

@@ -1,0 +1,6 @@
+apiVersion: v2
+name: example-app
+description: A simple example chart for testing the C++ WASM renderer
+type: application
+version: 0.1.0
+appVersion: "1.0"
