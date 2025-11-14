@@ -41,6 +41,27 @@ lol
 
 ```shell
 $ helm template example examples/simple-chart/ --post-renderer cpp-renderer
-Error: error while running post render on files: failed to invoke post-renderer plugin "cpp-renderer": failed to json marshal plugin output message: reflect.Value: json: can
-not unmarshal string into Go struct field OutputMessagePostRendererV1.manifests of type bytes.Buffer
+---
+# Source: generated-by-postrender-0.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx
+  labels:
+    app: nginx
+spec:
+  replicas:
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:latest
+        ports:
+        - containerPort: 80
 ```
