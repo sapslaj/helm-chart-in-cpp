@@ -57,7 +57,7 @@ extern "C" {
         char base64_output[BUFFER_SIZE];
         size_t encoded_len = base64_encode(
             (uint8_t*)manifest,
-            sizeof(manifest),
+            sizeof(manifest)-1,
             base64_output,
             sizeof(base64_output)
         );

@@ -21,7 +21,7 @@ all: wasm
 # Build WASM plugin
 wasm: $(WASM_OUTPUT)
 
-$(WASM_OUTPUT): $(SOURCES) include/extism-pdk.h include/simple_json.h
+$(WASM_OUTPUT): $(SOURCES) include/extism-pdk.h include/shit.h include/base64.h
 	@echo "Building WASM plugin..."
 	$(CC) $(CFLAGS) -o $(WASM_OUTPUT) $(SOURCES)
 	@echo "✓ Built $(WASM_OUTPUT)"
