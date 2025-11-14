@@ -13,6 +13,24 @@ plugin and requires a seed chart but it technically should work.
 But it doesn't work. Because postrender WASM plugins are borked in Helm 4 right
 now. But once that is fixed this should work.
 
+HOWEVER!!! if you add a custom `UnmarshalJSON` implementation to the `OutputMessagePostRendererV1` struct, then it magically fixes it.
+
+```go
+// internal/plugin/schema/postrenderer.go
+func (o *OutputMessagePostRendererV1) UnmarshalJSON(data []byte) error {
+	type real struct {
+		Manifests []byte `json:"manifests"`
+	}
+	var res real
+	err := json.Unmarshal(data, &res)
+	if err != nil {
+		return err
+	}
+	o.Manifests = bytes.NewBuffer(res.Manifests)
+	return nil
+}
+```
+
 and yes i vibe coded the makefile and base64 and minimal libc functions sorry
 
 ## Installation
